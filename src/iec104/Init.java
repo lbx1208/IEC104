@@ -35,6 +35,7 @@ public class Init {
 	public static List<PVAnalogQuantityData2> PVA2 = new ArrayList<PVAnalogQuantityData2>();
 	
     public static void  start(){
+    	//测试代码注释下面两行
         initBusinessData();
         initdb();
         init_db_time_do();

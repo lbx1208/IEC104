@@ -23,6 +23,7 @@ public class Client {
 	// 定义的是本地远程命令发送帧的接收和发送序号
 	public static int receiveSeqNum = 0; //接收序号
 	public static int sendSeqNum = 0; // 发送序号，每发送一个后需+1
+
 	public static void main(String[] args) {
 		// 记录存储遥控、遥调实时值
 		Map<String, Integer> remoteControlValues = new HashMap<String,Integer>();
@@ -34,6 +35,7 @@ public class Client {
 			Socket socket = new Socket("127.0.0.1", 2404);
 			// 由Socket对象得到输出流，并构造PrintWriter对象
 			OutputStream os = socket.getOutputStream();
+			System.out.println(os);
 			// 启动链路
 			os.write(ChangeUtils.hexStringToBytes("680407000000"));
 			// 发送总召唤命令
@@ -49,6 +51,7 @@ public class Client {
                         sendNum[1] = (byte) (sendSeqNum >> 7);
                         sendSeqNum += 1;
                         String sendStr = ChangeUtils.toHexString(sendNum);
+						System.out.println(sendStr);//打印发送的数据信息
                         os.write(ChangeUtils.hexStringToBytes("680E"+sendStr+recStr+"64010600010000000014"));
                     } catch (Exception e) {
                         e.printStackTrace();

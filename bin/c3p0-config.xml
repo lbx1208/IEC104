@@ -10,9 +10,9 @@
     <named-config name="mysql">
         <!-- 基础连接配置 -->
         <property name="driverClass">com.mysql.jdbc.Driver</property>
-        <property name="jdbcUrl">jdbc:mysql://116.196.107.225:3306/microgriddata?useSSL=false</property>
-        <property name="user">microgrid</property>
-        <property name="password">microgridpasswd</property>
+        <property name="jdbcUrl">jdbc:mysql://127.0.0.1:3306/test?useSSL=false</property>
+        <property name="user">root</property>
+        <property name="password">123456</property>
         <!-- 初始化连接池中的连接数，取值应在minPoolSize与maxPoolSize之间，默认为3-->
         <property name="initialPoolSize">10</property> 
         <!--最大空闲时间，60秒内未使用则连接被丢弃。若为0则永不丢弃。默认值: 0 -->    
