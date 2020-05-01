@@ -17,7 +17,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class Mainpro {
+public class Mainprocess {
 
     private static int receiveSeqNum = 0; //接收序号
     private static int sendSeqNum = 0; // 发送序号，每发送一个后需+1
