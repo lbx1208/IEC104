@@ -35,7 +35,7 @@ public class Client {
 			Socket socket = new Socket("127.0.0.1", 2404);
 			// 由Socket对象得到输出流，并构造PrintWriter对象
 			OutputStream os = socket.getOutputStream();
-			System.out.println(os);
+			System.out.println("os"+os);
 			// 启动链路
 			os.write(ChangeUtils.hexStringToBytes("680407000000"));
 			// 发送总召唤命令
@@ -219,7 +219,8 @@ public class Client {
                         String recStr = ChangeUtils.toHexString(recNum);
                         os.write(ChangeUtils.hexStringToBytes("68040100" + recStr));
                         System.out.println("确认消息，S类型，下一条的接受序号：" + recStr);
-                    }else if (apdu.getApciType() == Apdu.ApciType.STARTDT_ACT) {
+                    }
+                    else if (apdu.getApciType() == Apdu.ApciType.STARTDT_ACT) {
                         os.write(ChangeUtils.hexStringToBytes("68040B000000"));
                         System.out.println("确认启动消息，U类型");
                     }else if (apdu.getApciType() == Apdu.ApciType.STOPDT_ACT) {
@@ -243,6 +244,7 @@ public class Client {
 			System.out.println("异常错误,"+ e);
 		}
 	}
+
     public static void handleData(int typeId,InformationObject[] infoObjs) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         Runnable runnable = new Runnable() {
             @Override
