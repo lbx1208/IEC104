@@ -40,9 +40,9 @@ public class FileUtils {
         return JSONObject.fromObject(jsonStrBuff.toString());
     }
 
-    public FileUtils(){
+    public static void FileUtils(){
         logger = Logger.getLogger(FileUtils.class);
-        logger.debug("配置成功！");
+        logger.debug("配置log4j成功！");
         logger.info("你好，你配置成功了！");
     }
 }

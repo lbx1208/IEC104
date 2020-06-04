@@ -6,6 +6,7 @@ import com.rtdb.model.IntData;
 import com.rtdb.service.impl.ServerImpl;
 import com.rtdb.service.impl.ServerImplPool;
 import com.rtdb.service.impl.SnapshotImpl;
+import iec104.util.FileUtils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -80,7 +81,7 @@ public class GoldenRtdb {
 
     /**
      *
-     * @param name
+     * @param
      * @return
      * @throws Exception
      *     用于获取整型数据
@@ -90,4 +91,19 @@ public class GoldenRtdb {
         List<IntData> list = entity.getList();
         return list.get(0).getState();
     }*/
+
+//20200603新加---------------------------------------------------------------------
+    public List<IntData> getIntSnapshots(String[] tagNames) throws Exception {
+        Entity<IntData> entity;
+        List<IntData> list = null;
+        if (snapshot != null){
+            entity = snapshot.getIntSnapshots(tagNames);
+            list = entity.getList();
+        }else{
+            init();
+            FileUtils.logger.warn("重連了數據庫！");
+        }
+        return list;
+    }
+
 }

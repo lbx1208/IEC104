@@ -10,15 +10,12 @@ import java.io.FileReader;
  *      1.获取的信息包括：104地址、数据库点名、数据类型、是否需要变比；
  *          a、转化以后的信息应该是包括：或者直接用一个对象来进行存储；
  *
- *
- *
- *
  */
 public class ReadCsv {
-    private Information YXinfo;
-    private Information YCinfo;
-    private Information YKinfo;
-    private Information YTinfo;
+    private static Information YXinfo;
+    private static Information YCinfo;
+    private static Information YKinfo;
+    private static Information YTinfo;
 
     public void readCsvData(String name) throws Exception {
 
@@ -87,19 +84,19 @@ public class ReadCsv {
         information.setIecAddress(address);
     }
 
-    public Information getYXinfo() {
+    public static Information getYXinfo() {
         return YXinfo;
     }
 
-    public Information getYCinfo() {
+    public static Information getYCinfo() {
         return YCinfo;
     }
 
-    public Information getYKinfo() {
+    public static Information getYKinfo() {
         return YKinfo;
     }
 
-    public Information getYTinfo() {
+    public static Information getYTinfo() {
         return YTinfo;
     }
 }
